@@ -9,7 +9,7 @@ import { Paper, Button, Box } from "@mui/material";
 import { useRouter } from "next/router";
 import axios from 'axios'
 
-export default function AddressForm() {
+export default function Register() {
   let initialState ={
     companyName:"",
     firstName:"",
@@ -33,7 +33,7 @@ export default function AddressForm() {
   const handleSubmit =(event)=>{
     let path ='/login'
     console.log(formData)
-    axios.post('http://localhost:1999/REGISTER', formData)
+    axios.post('http://localhost:1998/api/register', formData)
     .then(function (response) {
       console.log(response);
       router.push(path);
