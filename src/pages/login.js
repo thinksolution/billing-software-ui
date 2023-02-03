@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Header from "./header";
 import axios from "axios";
+import {useRouter} from"next/router"
 
 function Copyright(props) {
   return (
@@ -36,6 +37,8 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const router = useRouter();
+
   let initialState = { email: "", password: "" };
   const [formData,setFormdata] = React.useState(initialState)
 
@@ -47,6 +50,7 @@ export default function Login() {
   }
   const handleSubmit = (event) => {
     event.preventDefault();
+    const path = '/dashboard';
     console.log(formData)
     //const data = new FormData(event.currentTarget);
     axios
@@ -57,11 +61,12 @@ export default function Login() {
       .catch(function (error) {
         console.log(error);
       });
+      router.push(path);
+
   };
 
   return (
     <ThemeProvider theme={theme}>
-      <Header></Header>
       <Grid container component="main" sx={{ height: "100vh" }}>
         <CssBaseline />
         <Grid
@@ -132,6 +137,7 @@ export default function Login() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
+                onClick={handleSubmit}
               >
                 Sign In
               </Button>
