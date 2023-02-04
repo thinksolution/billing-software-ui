@@ -61,7 +61,9 @@ export default function Login() {
       .catch(function (error) {
         console.log(error);
       });
+      if(response!== undefined){
       router.push(path);
+      }
 
   };
 
