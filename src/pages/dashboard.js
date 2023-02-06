@@ -26,8 +26,8 @@ console.log("d",customerData.resultObj)
 };
 export async function getServerSideProps() {
   // Fetch data from external API
-  const res = await fetch("http://localhost:1998/api/customer");
-  const data = await res.json()
+const res = await fetch("http://localhost:1998/api/customers");
+const data = await res.json()
   // Pass data to the page via props
   return { props: { data } }
 }

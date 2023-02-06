@@ -56,14 +56,12 @@ export default function Login() {
     axios
       .post("http://localhost:1998/api/login", formData)
       .then(function (response) {
-        console.log(response);
+        router.push(path);
       })
       .catch(function (error) {
         console.log(error);
       });
-      if(response!== undefined){
-      router.push(path);
-      }
+      
 
   };
 

@@ -24,12 +24,10 @@ export default function Register() {
   }
   const router = useRouter();
   const [formData,setFormdata] = React.useState(initialState)
-  const formRef = React.useRef();
   const handleChange=(e)=>{
     const {name,value}=e.target;
     setFormdata({...formData,
       [name]:value})
-      formRef.current.reportValidity()
 
   }
   const handleSubmit =(event)=>{
@@ -56,7 +54,7 @@ export default function Register() {
           <Typography component="h1" variant="h4" align="center" sx={{ mb: 4 }}>
              Fill Company Details
           </Typography>
-          <Box component={'form'} ref={formRef}>
+          <Box component={'form'}>
           <Grid container spacing={3}>
           <Grid item xs={12} >
               <TextField
